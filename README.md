@@ -1,1 +1,3 @@
 rails class
+
+feature addition
