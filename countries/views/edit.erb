@@ -1,5 +1,3 @@
-<html>
-    <body>
         <form action="/questions/edit" method="post">
             <% q=Question.find(@qid) %>
             <textarea name="question" placeholder="Question"><%=q.question%></textarea>
@@ -8,5 +6,3 @@
             <input type="hidden" name="id" value="<%=@qid.to_s%>">
             <input type="submit" value="Save"> 
         </form>
-    </body>
-</html>

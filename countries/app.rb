@@ -39,3 +39,14 @@ end
 get '/' do
     'Hello World'
 end
+
+get '/guess' do
+    questions=Question.all
+    @q=questions.sample
+    erb :guess
+end
+
+get '/answer' do
+    @question=Question.find(params[:id].to_i)
+    erb :answer
+end
