@@ -1,0 +1,8 @@
+        <form action="/questions/edit" method="post">
+            <% question=Question.find(@question_id) %>
+            <textarea name="question" placeholder="Question"><%=question.question%></textarea>
+            <input type="text" name="answer" value="<%=question.answer%>" placeholder="Answer">
+            <input type="text" name="flag" value="<%=question.flag%>" placeholder="Flag">
+            <input type="hidden" name="id" value="<%=@question_id.to_s%>">
+            <input type="submit" value="Save"> 
+        </form>
