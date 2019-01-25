@@ -1,0 +1,13 @@
+<a href="/contacts/new">New</a><br>
+<form action="/contacts" method="get">
+    <input type="text" name="search">
+    <input type="submit" value="Search">
+</form>
+<% @contacts.each do |contact| %>
+    <div>
+        <a href="/contacts/edit?id=<%= contact.id %>">Edit</a>
+        <%= contact.first_name + " " + contact.last_name + " " +
+        contact.phone + " " + contact.email + " " + contact.address + " " + 
+        contact.city + " " + contact.state + " " + contact.zip%>
+    </div>
+<% end %>
