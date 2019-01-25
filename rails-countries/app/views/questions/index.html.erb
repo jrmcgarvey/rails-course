@@ -1,0 +1,9 @@
+        <a href="/questions/new">New</a>
+        <% @questions.each do |question| %>
+            <div>
+                <a href="/questions/edit?id=<%= question.id %>">Edit</a>
+                <%= question.question %>
+                <%= question.answer %>
+                <img src="<%= question.flag %>" style="height:2em;">
+            </div>
+        <% end %>
