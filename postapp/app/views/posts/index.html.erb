@@ -1,0 +1,12 @@
+<h2>Posts</h2>
+<a href="/posts/new">New</a>
+<% @posts.each do |post| %>
+    <% if post.user == nil %>
+        <% post.destroy %>
+    <% else %>
+    <div>
+        <a href="/posts/edit?id=<%= post.id %>">Edit</a> <%= link_to "Delete Post", { action: "delete", id: post.id },
+            method: :delete, data: { confirm: "Are you sure?" } %> <%= post.user.name + ": " + post.post_text %>
+    </div>
+    <% end %>
+<% end %>

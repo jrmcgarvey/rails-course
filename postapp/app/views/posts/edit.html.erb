@@ -1,0 +1,16 @@
+<h2>Edit Post</h2>
+<form action="/posts/edit" method="post">
+    <select name="user_id" value="<%= @post.user_id %>">
+        <% @users.each do |user| %>
+            <% if user.id == @post.user_id %>
+                <% is_selected="selected" %>
+            <% else %>
+                <% is_selected="" %>
+            <% end %>
+            <option value="<%=user.id%>" <%= is_selected %>><%= user.name %></option>
+        <% end %>
+    </select>
+    <input type="text" name="post_text" size="60" value="<%= @post.post_text %>">
+    <input type="hidden" name="id" value="<%= @post.id %>">
+    <input type="submit" value="Save">
+</form>

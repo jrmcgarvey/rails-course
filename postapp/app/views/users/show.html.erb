@@ -1,0 +1,6 @@
+<h2>Posts from <%= @user.name %></h2>
+<% @user.posts.each do |post|%>
+<div>
+    <%= post.post_text %>
+</div>
+<% end %>

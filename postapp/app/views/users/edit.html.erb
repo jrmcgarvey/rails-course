@@ -1,0 +1,6 @@
+<h2>Edit User</h2>
+<form action="/users/edit" method="post">
+    <input type="text" name="name" placeholder="Name" value="<%= @user.name %>">
+    <input type="hidden" name="id" value="<%= @user.id %>">
+    <input type="submit" value="Save">
+</form>

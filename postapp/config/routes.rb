@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    get '/users' => 'users#index'
+    get '/users/new' => 'users#new'
+    get '/users/show' => 'users#show'
+    get '/users/edit' => 'users#edit'
+    post '/users' => 'users#create'
+    post '/users/edit' => 'users#update'
+    delete '/users/delete' => 'users#delete'
+    get '/posts' => 'posts#index'
+    get '/posts/new' => 'posts#new'
+    get '/posts/edit' => 'posts#edit'
+    post '/posts' => 'posts#create'
+    post '/posts/edit' => 'posts#update'
+    delete '/posts/delete' => 'posts#delete'
 end
