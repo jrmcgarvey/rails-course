@@ -1,0 +1,9 @@
+<h2>Users</h2>
+<a href="/users/new">New</a>
+<% @users.each do |user| %>
+    <div>
+        <a href="/users/edit?id=<%= user.id %>">Edit</a> <%= link_to "Delete User", { action: "delete", id: user.id },
+            method: :delete, data: { confirm: "Are you sure?" } %> 
+            <a href="/users/show?id=<%= user.id %>">Show Posts</a> <%= user.name %>
+    </div>
+<% end %>

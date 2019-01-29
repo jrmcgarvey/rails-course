@@ -1,0 +1,10 @@
+<h2>New Post</h2>
+<form action="/posts" method="post">
+    <select name="user_id">
+        <% @users.each do |user| %>
+            <option value="<%=user.id%>"><%= user.name %></option>
+        <% end %>
+    </select>
+    <input type="text" name="post_text" size="60">
+    <input type="submit" value="Save">
+</form>
