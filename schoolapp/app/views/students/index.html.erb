@@ -1,0 +1,10 @@
+<h2>Students</h2>
+<%= link_to "New", new_student_path %>
+<% @students.each do |student| %>
+    <div>
+        <%= link_to "Edit", edit_student_path(id: student.id) %>
+        <%= link_to "Delete", student_path(id: student.id),
+            method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= student.first_name %> <%= student.last_name %> <%= student.course.name %>
+    </div>
+<% end %>

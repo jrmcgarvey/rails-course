@@ -1,0 +1,8 @@
+<h2>New Student</h2>
+<%= form_for @student do |f| %>
+    <%= f.text_field :first_name, placeholder: "First Name" %>
+    <%= f.text_field :last_name, placeholder: "Last Name" %>
+    <%= f.text_field :picture, placeholder: "Picture" %>
+    <%= f.collection_select(:course_id, @courses, :id, :name)  %>
+    <%= f.submit "Save" %>
+<% end %>
