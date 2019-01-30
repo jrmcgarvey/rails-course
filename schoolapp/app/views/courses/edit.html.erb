@@ -1,0 +1,7 @@
+<h2>Edit Course</h2>
+<%= form_for @course do |f| %>
+    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.text_field :location, placeholder: "Location" %>
+    <%= f.text_area :description, placeholder: "Description" %>
+    <%= f.submit "Save" %>
+<% end %>

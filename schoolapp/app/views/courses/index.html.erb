@@ -1,0 +1,9 @@
+<h2>List of Courses</h2>
+<%= link_to "New", new_course_path %>
+<% @courses.each do |course| %>
+    <div>
+        <%= link_to "Edit", edit_course_path(id: course.id) %> 
+        <%= link_to "Show Students", course_path(id: course.id) %>
+        <%= course.name.to_s + " " + course.location.to_s + " " + course.description.to_s %>
+    </div>
+<% end %>
