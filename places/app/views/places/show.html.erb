@@ -1,0 +1,10 @@
+<h1><%= @place.name %></h1>
+
+<h2>Visitors:</h2>
+
+<% @place.users.each do |user| %>
+    <div>
+        <h5><%= user.first_name %> <%= user.last_name %></h5>
+        <img src="<%= user.picture %>" height="100">
+    </div>
+<% end %>
