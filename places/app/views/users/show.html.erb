@@ -1,0 +1,16 @@
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+<%= form_tag '/users/add_place' do %>
+  <%= hidden_field_tag 'user_id', @user.id %>
+  <%= select_tag 'place_id', options_from_collection_for_select(@places, :id, :name) %>
+  <%= submit_tag 'Add' %>
+<% end %>
+
+<h2>Visited:</h2>
+
+<% @user.places.each do |place| %>
+    <div>
+        <h5><%= place.name %></h5>
+        <img src="<%= place.picture %>" height="100">
+    </div>
+<% end %>
