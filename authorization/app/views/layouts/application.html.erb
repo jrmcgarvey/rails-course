@@ -4,12 +4,50 @@
     <title>Authorization</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .container {
+        margin-top: 60px;
+      }
+    </style>
   </head>
 
   <body>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/protected">Protected</a>
+      </li>
+    </ul>
+    <ul  class="navbar-nav">
+       <% if current_user == nil %>
+       <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+       </li>
+      <% else %>
+         <li class="nav-item">
+        <h4><font color="yellow"><%= current_user.email %></font></h4>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Logout", destroy_user_session_path, method: :delete,class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+    <main class="container">
     <%= yield %>
+    </main>
   </body>
 </html>
