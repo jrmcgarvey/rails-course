@@ -1,0 +1,8 @@
+<h2>Edit Patient</h2>
+<%= form_for @patient do |f| %>
+<div><%= f.text_field :first_name, placeholder: "First Name" %></div>
+<div><%= f.text_field :last_name, placeholder: "Last Name" %></div>
+<div><%= f.email_field :email, placeholder: "Email" %></div>
+<div><%= f.text_field :phone, placeholder: "Phone" %></div>
+<div><%= f.submit "Save" %></div>
+<% end %>

@@ -1,0 +1,11 @@
+<h2>Doctors for Patient <%= @patient.first_name %> <%= @patient.last_name %></h2>
+
+<%= form_tag '/patients/add_doctor' do %>
+  <%= hidden_field_tag 'patient_id', @patient.id %>
+  <%= select_tag 'doctor_id', options_for_select(@doctors.map{|doctor| ["#{doctor.first_name} #{doctor.last_name}", doctor.id]}) %>
+  <%= submit_tag 'Add' %>
+<% end %>
+
+<% @patient.doctors.each do |doctor| %>
+<div><%= doctor.first_name %> <%= doctor.last_name %></div>
+<% end %>

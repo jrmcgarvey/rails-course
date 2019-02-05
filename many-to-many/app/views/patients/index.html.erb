@@ -1,0 +1,11 @@
+<h2>Patients</h2>
+<%= link_to "New", new_patient_path %>
+<% @patients.each do |patient| %>
+    <div>
+    <%= link_to "Show",patient_path(id: patient.id) %> 
+    <%= link_to "Edit",edit_patient_path(id: patient.id) %>
+    <%= link_to "Delete",patient_path(id: patient.id),method: :delete,
+    data: { confirm: "Are you sure?" } %> <%= patient.first_name %> <%= patient.last_name %> 
+    <%= patient.email %> <%= patient.phone %>
+    </div>
+<% end %>
