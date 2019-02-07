@@ -51,4 +51,11 @@ class PatientsController < ApplicationController
         end
         redirect_to patient_path(id: params[:patient_id])
     end
+    
+    def delete_doctor
+        patient_doctor = PatientDoctor.find(params[:id])
+        patient_id = patient_doctor.patient_id
+        patient_doctor.destroy
+        redirect_to patient_path(id: patient_id)
+    end
 end

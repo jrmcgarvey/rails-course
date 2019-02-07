@@ -6,6 +6,7 @@
   <%= submit_tag 'Add' %>
 <% end %>
 
-<% @patient.doctors.each do |doctor| %>
-<div><%= doctor.first_name %> <%= doctor.last_name %></div>
+<% @patient.patient_doctors.each do |patient_doctor| %>
+<div><%= link_to "Delete", patients_delete_doctor_path(id: patient_doctor.id), method: :delete %> <%= patient_doctor.doctor.first_name %> 
+  <%= patient_doctor.doctor.last_name %></div>
 <% end %>
