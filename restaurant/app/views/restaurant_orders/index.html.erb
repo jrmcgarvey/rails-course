@@ -1,0 +1,37 @@
+<% @orders.each do |order| %>
+    <div class="row" >
+        <div class="col-2">
+            <%= order.status %>
+        </div>
+        <div class="col-6">
+            <%= order.street_address %>
+            <%= order.city %>
+            <%= order.state %>
+            <%= order.zip %>
+        </div>
+        <div class="col-2">
+            $<%= order.total %>
+        </div>
+        <div class="col-2">
+            <% if order.status == 'submitted' %>
+            <%= link_to "Prepare", prepare_path(order), method: :put, class: 'btn btn-secondary' %>
+            <% elsif order.status == 'preparing' %>
+            <%= link_to "Enroute", enroute_path(order), method: :put, class: 'btn btn-secondary' %>
+            <% elsif order.status == 'enroute' %>
+            <%= link_to "Deliver", deliver_path(order), method: :put, class: 'btn btn-secondary' %>
+            <% elsif order.status == 'delivering' %>
+            <%= link_to "Complete", complete_path(order), method: :put, class: 'btn btn-secondary' %>
+            <% end %>
+        </div>
+    </div>
+    <% if order.status == 'preparing' %>
+    <% order.order_dishes.each do |order_dish| %>
+      <div class="media mt-3">
+                <%= image_tag order_dish.dish.picture, height: 50, width: 50, class: 'mr-3' %>
+                <h6>
+                    <%= order_dish.dish.name %>
+                </h6>
+            </div>
+    <% end %>
+    <% end %>
+<% end %>
