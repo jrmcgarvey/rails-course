@@ -1,0 +1,26 @@
+<h2>Appointments for Patient <%= @patient.first_name %> <%= @patient.last_name %></h2>
+<%= link_to "Set Doctors", set_doctors_patient_path(@patient), class: 'btn btn-primary btn-sm m-2' %>
+<div>
+<%= form_tag '/patients/add_appointment' do %>
+  <%= hidden_field_tag 'patient_id', @patient.id %>
+  <%= select_tag 'patient_doctor_id', 
+  options_for_select(@patient.patient_doctors.map{|patient_doctor| ["#{patient_doctor.doctor.first_name} #{patient_doctor.doctor.last_name}", patient_doctor.id]}) %>
+  <%= text_field_tag :location, nil, placeholder: "Location" %>
+  <%= datetime_local_field 'appointment','appointment_time', placeholder: "Appointment Time" %>
+  <%= submit_tag 'Add Appointment' %>
+<% end %>
+<% if flash[:info] %>
+<div class="alert alert-warning" role="alert">
+  <%= flash[:info] %>
+</div>
+<% end %>
+</div>
+
+<% @patient.appointments.each do |appointment| %>
+<% doctor = appointment.doctor %>
+<div> <div><%= link_to "Cancel", patients_cancel_appointment_path(id: appointment.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary btn-sm m-2' %> <%= doctor.first_name %> <%= doctor.last_name %> <%= appointment.location %>
+<% if appointment.appointment_time != nil %>
+<%= appointment.appointment_time.strftime("%A %D %r") %>
+<% end %>
+</div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_for @doctor do |f| %>
+<div><%= f.text_field :first_name, placeholder: "First Name" %></div>
+<% @doctor.errors[:first_name].each do |msg| %>
+<div>First Name <%= msg %></div>
+<% end %>
+<div><%= f.text_field :last_name, placeholder: "Last Name" %></div>
+<% @doctor.errors[:last_name].each do |msg| %>
+<div>Last Name <%= msg %></div>
+<% end %>
+<div><%= f.text_field :specialty, placeholder: "Specialty" %></div>
+<% @doctor.errors[:specialty].each do |msg| %>
+<div>Specialty <%= msg %></div>
+<% end %>
+<div><%= f.email_field :email, placeholder: "Email" %></div>
+<% @doctor.errors[:email].each do |msg| %>
+<div>Email <%= msg %></div>
+<% end %>
+<div><%= f.text_field :phone, placeholder: "Phone" %></div>
+<% @doctor.errors[:phone].each do |msg| %>
+<div>Phone <%= msg %></div>
+<% end %>
+<div><%= f.text_field :picture, placeholder: "Picture" %></div>
+<% @doctor.errors[:picture].each do |msg| %>
+<div>Picture <%= msg %></div>
+<% end %>
+<div><%= f.submit "Save" %></div>
+<% end %>

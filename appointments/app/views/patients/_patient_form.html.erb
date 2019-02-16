@@ -1,0 +1,19 @@
+<%= form_for @patient do |f| %>
+<div><%= f.text_field :first_name, placeholder: "First Name" %></div>
+<% @patient.errors[:first_name].each do |msg| %>
+<div>First Name <%= msg %></div>
+<% end %>
+<div><%= f.text_field :last_name, placeholder: "Last Name" %></div>
+<% @patient.errors[:last_name].each do |msg| %>
+<div>Last Name <%= msg %></div>
+<% end %>
+<div><%= f.email_field :email, placeholder: "Email" %></div>
+<% @patient.errors[:email].each do |msg| %>
+<div>Email <%= msg %></div>
+<% end %>
+<div><%= f.text_field :phone, placeholder: "Phone" %></div>
+<% @patient.errors[:phone].each do |msg| %>
+<div>Phone <%= msg %></div>
+<% end %>
+<div><%= f.submit "Save" %></div>
+<% end %>
