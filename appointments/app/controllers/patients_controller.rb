@@ -3,7 +3,7 @@
 # Rails controller to handle operations on patients
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-
+  
   def index
     @patients = Patient.all
   end
