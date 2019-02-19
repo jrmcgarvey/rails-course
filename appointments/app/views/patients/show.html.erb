@@ -16,7 +16,7 @@
 <% end %>
 </div>
 
-<% @patient.appointments.each do |appointment| %>
+<% @patient.appointments.order(:appointment_time).each do |appointment| %>
 <% doctor = appointment.doctor %>
 <div> <div><%= link_to "Cancel", patients_cancel_appointment_path(id: appointment.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary btn-sm m-2' %> <%= doctor.first_name %> <%= doctor.last_name %> <%= appointment.location %>
 <% if appointment.appointment_time != nil %>

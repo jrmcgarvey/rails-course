@@ -3,7 +3,7 @@
 <div> <%= patient.first_name %> <%= patient.last_name %></div>
 <% end %>
 <h2>Appointments of Doctor <%= @doctor.first_name %> <%= @doctor.last_name %> </h2>
-<% @doctor.appointments.each do |appointment| %>
+<% @doctor.appointments.order(:appointment_time).each do |appointment| %>
 <% patient = appointment.patient %>
 <div> <%= patient.first_name %> <%= patient.last_name %> <%= appointment.location %> <%= appointment.appointment_time.strftime("%A %D %r") %></div>
 <% end %>
